@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Local PeerConnection() example</title>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+ crossorigin="anonymous">
+		<style>
+			body {
+				background-color: white;
+			}
+			.wrapper {
+				display: grid;
+				grid-template-areas: "localvideo remotevideo";
+			}
+
+			.videoElement {
+				margin: 0 auto;
+			}
+
+			#localVideo {
+				grid-area: localvideo;
+			}
+			
+			h1 {
+				text-align: center;
+			}
+
+			video {
+				height: 300px;
+			}
+
+			textarea {
+				width: 100%;
+				height: 150px;
+				margin-bottom: 20px;
+			}
+
+			#remoteVideo {
+				grid-area: remotevideo;
+			}
+
+			.remotechannel {
+				margin-top: 90px;
+			}
+
+			.control {
+				margin-top: 30px;
+			}
+
+			button {
+				padding: 15px 40px;
+				background-color: cornflowerblue;
+				border: 0;
+				cursor: pointer;
+				color: black;
+			}
+			button:disabled {
+				background: lightgray;
+			}
+			button:hover:not([disabled]) {
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="videoElement localvideo">
+				<h1>Local Video</h1>
+				<video id="localVideo" autoplay></video>
+				<div class="control">
+					<button id="startButton">
+						<i class="fa fa-play" aria-hidden="true"></i>
+					</button>
+					<button id="callButton">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</button>
+					<button id="hangupButton">Hang Up</button>
+				</div>
+				<div class="localchannel">
+					<h1>Local Channel</h1>
+					<textarea id="dataChannelSend" disabled placeholder="1: Press Start; 2: Press Call; 3: Enter text; 4: Press Send."></textarea>
+					<div id="buttons">
+						<button id="sendButton">Send</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="videoElement remoteVideo">
+				<h1>'Remote' video</h1>
+				<video id="remoteVideo" autoplay></video>
+				<div class="remotechannel">
+					<h1>Remote Channel</h1>
+					<textarea id="dataChannelReceive" disabled></textarea>
+				</div>
+			</div>
+		</div>
+		<script src="js/localPeerConnection-lib.js"></script>
+		<script src="js/localPeerConnection.js"></script>
+	</body>
+</html>
