@@ -1,24 +1,35 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
-  </head>
-  <body>
-	<ul id="messages"></ul>
-	<form action="">
-	    <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.8.2/umd/popper.js" type="text/javascript" charset="utf-8" async defer></script>
-	<script src="bundle.js" type="text/javascript" charset="utf-8" async defer></script>
-  </body>
+	<head>
+		<title>Made with ❤️ 🚀 🦆</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="videoElement">
+				<video id="localVideo" autoplay></video>
+				<video id="remoteVideo" autoplay></video>
+			</div>
+			<div class="control">
+				<button id="startButton">🙌</button>
+				<button id="callButton">📞</button>
+				<button id="hangupButton">📴</button>
+			</div>
+		</div>
+		<div class="channels">
+			<div class="localchannel">
+				<h1>Local Channel</h1>
+				<textarea id="dataChannelSend" disabled placeholder="1: Press Start; 2: Press Call; 3: Enter text; 4: Press Send."></textarea>
+				<div id="buttons">
+					<button id="sendButton">Send</button>
+				</div>
+			</div>
+			<div class="remotechannel">
+				<h1>Remote Channel</h1>
+				<textarea id="dataChannelReceive" disabled></textarea>
+			</div>
+		</div>
+		<script src="js/localPeerConnection-lib.js"></script>
+		<script src="js/localPeerConnection.js"></script>
+	</body>
 </html>
